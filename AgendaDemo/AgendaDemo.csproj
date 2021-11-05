@@ -103,6 +103,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="animais-selvagens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="agendaicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="agendaicon2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.3.0-ci78\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.3.0-ci78\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
