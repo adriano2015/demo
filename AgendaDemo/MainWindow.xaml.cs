@@ -23,6 +23,8 @@ namespace AgendaDemo
         public MainWindow()
         {
             InitializeComponent();
+            txtNomeContato.MaxLength = 39;
+            txtEnderecoContato.MaxLength = 39;
         }
     }
 }
