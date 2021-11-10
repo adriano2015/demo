@@ -25,6 +25,12 @@ namespace AgendaDemo
             InitializeComponent();
             txtNomeContato.MaxLength = 39;
             txtEnderecoContato.MaxLength = 39;
+            txtTelefonesContato.MaxLength = 39;
+            txtCelularContato.MaxLength = 39;
+            txtEmailContato.MaxLength = 39;
+            txtLinkedinContato.MaxLength = 39;
+            txtCepContato.MaxLength = 8;
+            txtPesquisaContato.MaxLength = 39;
         }
     }
 }
