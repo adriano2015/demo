@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="agendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="contatosAgenda">
+          <Key>
+            <PropertyRef Name="codContato" />
+          </Key>
+          <Property Name="codContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeContato" Type="varchar" MaxLength="39" />
+          <Property Name="EnderecoContato" Type="varchar" MaxLength="39" />
+          <Property Name="TelefonesContato" Type="varchar" MaxLength="39" />
+          <Property Name="CelularContato" Type="varchar" MaxLength="39" />
+          <Property Name="EmailContato" Type="varchar" MaxLength="39" />
+          <Property Name="LinkedinContato" Type="varchar" MaxLength="39" />
+          <Property Name="CepContato" Type="varchar" MaxLength="8" />
+          <Property Name="PesquisaContato" Type="varchar" MaxLength="39" />
+          <Property Name="DataNascimentoContato" Type="date" />
+          <Property Name="UFContato" Type="varchar" MaxLength="2" />
+          <Property Name="CidadeContato" Type="varchar" MaxLength="39" />
+        </EntityType>
+        <EntityContainer Name="agendaModelStoreContainer">
+          <EntitySet Name="contatosAgenda" EntityType="Self.contatosAgenda" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="agendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="contatosAgenda">
+          <Key>
+            <PropertyRef Name="codContato" />
+          </Key>
+          <Property Name="codContato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonesContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="CelularContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="EmailContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedinContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="CepContato" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PesquisaContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+          <Property Name="DataNascimentoContato" Type="DateTime" Precision="0" />
+          <Property Name="UFContato" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CidadeContato" Type="String" MaxLength="39" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="agendaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contatosAgendas" EntityType="Self.contatosAgenda" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="agendaModelStoreContainer" CdmEntityContainer="agendaEntities1">
+          <EntitySetMapping Name="contatosAgendas">
+            <EntityTypeMapping TypeName="agendaModel.contatosAgenda">
+              <MappingFragment StoreEntitySet="contatosAgenda">
+                <ScalarProperty Name="codContato" ColumnName="codContato" />
+                <ScalarProperty Name="NomeContato" ColumnName="NomeContato" />
+                <ScalarProperty Name="EnderecoContato" ColumnName="EnderecoContato" />
+                <ScalarProperty Name="TelefonesContato" ColumnName="TelefonesContato" />
+                <ScalarProperty Name="CelularContato" ColumnName="CelularContato" />
+                <ScalarProperty Name="EmailContato" ColumnName="EmailContato" />
+                <ScalarProperty Name="LinkedinContato" ColumnName="LinkedinContato" />
+                <ScalarProperty Name="CepContato" ColumnName="CepContato" />
+                <ScalarProperty Name="PesquisaContato" ColumnName="PesquisaContato" />
+                <ScalarProperty Name="DataNascimentoContato" ColumnName="DataNascimentoContato" />
+                <ScalarProperty Name="UFContato" ColumnName="UFContato" />
+                <ScalarProperty Name="CidadeContato" ColumnName="CidadeContato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

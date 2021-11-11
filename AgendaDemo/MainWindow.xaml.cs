@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgendaDemo.modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,9 @@ namespace AgendaDemo
             txtLinkedinContato.Clear();
             txtCepContato.Clear();
             txtPesquisaContato.Clear();
+            dtPikerDataNascimentoContato.SelectedDate = DateTime.Now;
+
+
 
 
         }
@@ -132,10 +136,35 @@ namespace AgendaDemo
         {
             ControlaBotoes(1);
             ControlaCampos(1);
-            LimparCampos();
             
+            contatosAgenda contatoAgenda = new contatosAgenda();
+            contatoAgenda.NomeContato = txtNomeContato.Text;
+            contatoAgenda.EnderecoContato = txtEnderecoContato.Text;
+            contatoAgenda.TelefonesContato = txtTelefonesContato.Text;
+            contatoAgenda.CelularContato = txtCelularContato.Text;
+            contatoAgenda.EmailContato = txtEmailContato.Text;
+            contatoAgenda.LinkedinContato = txtLinkedinContato.Text;
+            contatoAgenda.CepContato = txtCepContato.Text;
+            contatoAgenda.DataNascimentoContato = dtPikerDataNascimentoContato.SelectedDate;
 
-            
+            try
+            {
+                agendaEntities1 agenda = new agendaEntities1();
+                agenda.contatosAgendas.Add(contatoAgenda);
+                agenda.SaveChanges();
+                MessageBox.Show("Contato salvo com sucesso");
+                LimparCampos();
+
+            }
+            catch
+            {
+                MessageBox.Show("Erro");
+            }
+
+
+
+
+
 
         }
     }
