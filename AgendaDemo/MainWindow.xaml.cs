@@ -31,9 +31,12 @@ namespace AgendaDemo
             txtLinkedinContato.MaxLength = 39;
             txtCepContato.MaxLength = 8;
             txtPesquisaContato.MaxLength = 39;
+            LimparCampos();
+            ControlaBotoes(1);
+            ControlaCampos(1);
         }
         //*********************************************************************** metodos para tratamento de tela *********************************
-        private void LiparCampos()
+        private void LimparCampos()
         {
             txtNomeContato.Clear();
             txtEnderecoContato.Clear();
@@ -64,6 +67,7 @@ namespace AgendaDemo
             {
                 BtnCancelaOperacao.IsEnabled = true;
                 BtnSalvarContato.IsEnabled = true;
+                BtnProcurarEnderecoContato.IsEnabled = true;
 
             }
             if(opc == 3)
@@ -71,6 +75,7 @@ namespace AgendaDemo
                 BtnEditarContato.IsEnabled = true;
                 BtnExcluirContato.IsEnabled = true;
                 BtnCancelaOperacao.IsEnabled = true;
+                BtnProcurarEnderecoContato.IsEnabled = true;
 
             }
 
@@ -85,7 +90,7 @@ namespace AgendaDemo
             txtEmailContato.IsEnabled = false;
             txtLinkedinContato.IsEnabled = false;
             txtCepContato.IsEnabled = false;
-            txtPesquisaContato.IsEnabled = false;
+            
 
             if(opc == 1)
             {
@@ -96,7 +101,8 @@ namespace AgendaDemo
                 txtEmailContato.IsEnabled = false;
                 txtLinkedinContato.IsEnabled = false;
                 txtCepContato.IsEnabled = false;
-                txtPesquisaContato.IsEnabled = false;
+                
+                
 
             }
             if(opc == 2)
@@ -111,6 +117,25 @@ namespace AgendaDemo
                 txtPesquisaContato.IsEnabled = true;
 
             }
+
+        }
+        // **********************************************************************************operações com botoes ***************************************
+        private void BtnNovoContato_Click(object sender, RoutedEventArgs e)
+        {
+            ControlaCampos(2);
+            ControlaBotoes(2);
+            
+
+        }
+
+        private void BtnSalvarContato_Click(object sender, RoutedEventArgs e)
+        {
+            ControlaBotoes(1);
+            ControlaCampos(1);
+            LimparCampos();
+            
+
+            
 
         }
     }

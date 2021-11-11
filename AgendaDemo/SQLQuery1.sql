@@ -8,11 +8,15 @@ create table contatosAgenda(
  EmailContato varchar(39),
  LinkedinContato varchar(39),
  CepContato varchar(8),
- PesquisaContato varchar
-
-
+ PesquisaContato varchar (39),
+ DataNascimentoContato date,
+ UFContato varchar (2),
+ CidadeContato varchar (39)
 )
 go
+
+
+
 
 
 

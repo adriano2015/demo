@@ -42,3 +42,7 @@ F:\c#\AgendaDemo\demo\AgendaDemo\obj\Debug\AgendaDemo.csproj.CoreCompileInputs.c
 F:\c#\AgendaDemo\demo\AgendaDemo\obj\Debug\AgendaDemo.csproj.CopyComplete
 F:\c#\AgendaDemo\demo\AgendaDemo\obj\Debug\AgendaDemo.exe
 F:\c#\AgendaDemo\demo\AgendaDemo\obj\Debug\AgendaDemo.pdb
+F:\c#\AgendaDemo\demo\AgendaDemo\bin\Debug\EntityFramework.dll
+F:\c#\AgendaDemo\demo\AgendaDemo\bin\Debug\EntityFramework.SqlServer.dll
+F:\c#\AgendaDemo\demo\AgendaDemo\bin\Debug\EntityFramework.xml
+F:\c#\AgendaDemo\demo\AgendaDemo\bin\Debug\EntityFramework.SqlServer.xml

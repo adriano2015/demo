@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="agendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="contatosAgenda">
+    <Key>
+      <PropertyRef Name="codContato" />
+    </Key>
+    <Property Name="codContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeContato" Type="varchar" MaxLength="39" />
+    <Property Name="EnderecoContato" Type="varchar" MaxLength="39" />
+    <Property Name="TelefonesContato" Type="varchar" MaxLength="39" />
+    <Property Name="CelularContato" Type="varchar" MaxLength="39" />
+    <Property Name="EmailContato" Type="varchar" MaxLength="39" />
+    <Property Name="LinkedinContato" Type="varchar" MaxLength="39" />
+    <Property Name="CepContato" Type="varchar" MaxLength="8" />
+    <Property Name="PesquisaContato" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="agendaModelStoreContainer">
+    <EntitySet Name="contatosAgenda" EntityType="Self.contatosAgenda" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
