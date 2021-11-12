@@ -35,6 +35,7 @@ namespace AgendaDemo
             LimparCampos();
             ControlaBotoes(1);
             ControlaCampos(1);
+           
         }
         //*********************************************************************** metodos para tratamento de tela *********************************
         private void LimparCampos()
@@ -153,6 +154,7 @@ namespace AgendaDemo
                 agenda.contatosAgendas.Add(contatoAgenda);
                 agenda.SaveChanges();
                 MessageBox.Show("Contato salvo com sucesso");
+                ListarContatos();
                 LimparCampos();
 
             }
@@ -166,6 +168,31 @@ namespace AgendaDemo
 
 
 
+        }
+        //******************************************************** dataGrid ************************************************************************
+        private void ListarContatos()
+        {
+            agendaEntities1 lista = new agendaEntities1();
+            var consulta = lista.contatosAgendas;
+            dtGRidContatos.ItemsSource = consulta.ToList();
+            dtGRidContatos.Columns[0].Header = "Código";
+            dtGRidContatos.Columns[1].Header = "Nome";
+            dtGRidContatos.Columns[2].Header = "Endereço";
+            dtGRidContatos.Columns[3].Header = "Telefone";
+            dtGRidContatos.Columns[4].Header = "Celular";
+            dtGRidContatos.Columns[5].Header = "email";
+            dtGRidContatos.Columns[6].Header = "Linkedin";
+            dtGRidContatos.Columns[7].Header = "CEP";
+            dtGRidContatos.Columns[8].Header = "Pesquisa";
+            dtGRidContatos.Columns[9].Header = "Aniversário";
+            dtGRidContatos.Columns[10].Header = "Estado";
+            dtGRidContatos.Columns[11].Header = "Cidade";
+
+        }
+
+        private void dtGRidContatos_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.ListarContatos();
         }
     }
 }

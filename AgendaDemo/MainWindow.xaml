@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgendaDemo"
         mc:Ignorable="d"
-        Title="Agenda" Height="700" Width="800" Icon="agendaicon2.png" WindowStartupLocation="CenterScreen">
+        Title="Agenda" Height="700" Width="900" Icon="agendaicon2.png" WindowStartupLocation="CenterScreen"  WindowState="Maximized">
     <Grid Background="#FF95B5E6">
         <GroupBox Header="Dados do Contato" Height="271" VerticalAlignment="Top" Margin="10,10,10,0" Background="{x:Null}" BorderBrush="#FF97B6C7"/>
         <GroupBox Header="Meus Contatos" Margin="10,359,10,32"/>
@@ -29,7 +29,7 @@
 
         <Label Content="Pesquisar" HorizontalAlignment="Left" Margin="34,413,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <TextBox x:Name="txtPesquisaContato" HorizontalAlignment="Left" Height="29" Margin="100,413,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
-        <DataGrid x:Name="dtGRidContatos" Margin="20,460,20,47"/>
+        <DataGrid x:Name="dtGRidContatos" Margin="20,460,20,47" IsReadOnly="True" SelectionMode="Single" Loaded="dtGRidContatos_Loaded"/>
         <Border BorderBrush="AliceBlue" BorderThickness="1" Height="274" Margin="10,43,10,0" VerticalAlignment="Top" Background="#FF7DA2F0"/>
         <Label Content="Nome" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <Label Content="Endereço" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
