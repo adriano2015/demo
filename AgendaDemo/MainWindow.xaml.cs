@@ -153,14 +153,20 @@ namespace AgendaDemo
                 agendaEntities1 agenda = new agendaEntities1();
                 agenda.contatosAgendas.Add(contatoAgenda);
                 agenda.SaveChanges();
-                MessageBox.Show("Contato salvo com sucesso");
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Contato salvo com sucesso!!!!!!!!!!!!!");
+                
                 ListarContatos();
                 LimparCampos();
 
             }
             catch
             {
-                MessageBox.Show("Erro");
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Erro!!!!!!!!!!");
+                
             }
 
 

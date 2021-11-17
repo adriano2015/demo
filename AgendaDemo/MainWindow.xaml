@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgendaDemo"
         mc:Ignorable="d"
-        Title="Agenda" Height="700" Width="900" Icon="agendaicon2.png" WindowStartupLocation="CenterScreen"  WindowState="Maximized">
+        Title="Agenda" Height="700" Width="900" Icon="agendaicon2.png" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF95B5E6">
         <GroupBox Header="Dados do Contato" Height="271" VerticalAlignment="Top" Margin="10,10,10,0" Background="{x:Null}" BorderBrush="#FF97B6C7"/>
         <GroupBox Header="Meus Contatos" Margin="10,359,10,32"/>
