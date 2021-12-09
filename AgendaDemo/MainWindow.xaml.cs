@@ -35,7 +35,7 @@ namespace AgendaDemo
             LimparCampos();
             ControlaBotoes(1);
             ControlaCampos(1);
-           
+
         }
         //*********************************************************************** metodos para tratamento de tela *********************************
         private void LimparCampos()
@@ -54,7 +54,7 @@ namespace AgendaDemo
 
 
         }
-        private void ControlaBotoes (int opc)
+        private void ControlaBotoes(int opc)
         {
             BtnNovoContato.IsEnabled = false;
             BtnSalvarContato.IsEnabled = false;
@@ -63,19 +63,19 @@ namespace AgendaDemo
             BtnCancelaOperacao.IsEnabled = false;
             BtnProcurarEnderecoContato.IsEnabled = false;
 
-            if(opc == 1)
+            if (opc == 1)
             {
                 BtnNovoContato.IsEnabled = true;
             }
 
-            if(opc == 2)
+            if (opc == 2)
             {
                 BtnCancelaOperacao.IsEnabled = true;
                 BtnSalvarContato.IsEnabled = true;
                 BtnProcurarEnderecoContato.IsEnabled = true;
 
             }
-            if(opc == 3)
+            if (opc == 3)
             {
                 BtnEditarContato.IsEnabled = true;
                 BtnExcluirContato.IsEnabled = true;
@@ -84,9 +84,9 @@ namespace AgendaDemo
 
             }
 
-            
+
         }
-        private void ControlaCampos (int opc)
+        private void ControlaCampos(int opc)
         {
             txtNomeContato.IsEnabled = false;
             txtEnderecoContato.IsEnabled = false;
@@ -95,9 +95,9 @@ namespace AgendaDemo
             txtEmailContato.IsEnabled = false;
             txtLinkedinContato.IsEnabled = false;
             txtCepContato.IsEnabled = false;
-            
 
-            if(opc == 1)
+
+            if (opc == 1)
             {
                 txtNomeContato.IsEnabled = false;
                 txtEnderecoContato.IsEnabled = false;
@@ -106,11 +106,11 @@ namespace AgendaDemo
                 txtEmailContato.IsEnabled = false;
                 txtLinkedinContato.IsEnabled = false;
                 txtCepContato.IsEnabled = false;
-                
-                
+
+
 
             }
-            if(opc == 2)
+            if (opc == 2)
             {
                 txtNomeContato.IsEnabled = true;
                 txtEnderecoContato.IsEnabled = true;
@@ -129,7 +129,7 @@ namespace AgendaDemo
         {
             ControlaCampos(2);
             ControlaBotoes(2);
-            
+
 
         }
 
@@ -137,7 +137,7 @@ namespace AgendaDemo
         {
             ControlaBotoes(1);
             ControlaCampos(1);
-            
+
             contatosAgenda contatoAgenda = new contatosAgenda();
             contatoAgenda.NomeContato = txtNomeContato.Text;
             contatoAgenda.EnderecoContato = txtEnderecoContato.Text;
@@ -156,7 +156,7 @@ namespace AgendaDemo
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
                 JA.RecebeMensagem("Contato salvo com sucesso!!!!!!!!!!!!!");
-                
+
                 ListarContatos();
                 LimparCampos();
 
@@ -166,7 +166,7 @@ namespace AgendaDemo
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
                 JA.RecebeMensagem("Erro!!!!!!!!!!");
-                
+
             }
 
 
@@ -200,5 +200,23 @@ namespace AgendaDemo
         {
             this.ListarContatos();
         }
+
+        private void dtGRidContatos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dtGRidContatos.SelectedIndex >= 0)
+            {
+                contatosAgenda contatos = (contatosAgenda)dtGRidContatos.Items[dtGRidContatos.SelectedIndex];
+                int codigoInternoContato = contatos.codContato;
+                txtNomeContato.Text = contatos.NomeContato;
+                txtEnderecoContato.Text = contatos.EnderecoContato;
+                txtTelefonesContato.Text = contatos.TelefonesContato;
+                txtCelularContato.Text = contatos.CelularContato;
+                txtEmailContato.Text = contatos.EmailContato;
+                txtLinkedinContato.Text = contatos.LinkedinContato;
+                txtCepContato.Text = contatos.CepContato;
+
+            }
+        }
+
     }
 }
