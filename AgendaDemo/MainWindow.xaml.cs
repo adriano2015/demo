@@ -32,6 +32,8 @@ namespace AgendaDemo
             txtLinkedinContato.MaxLength = 39;
             txtCepContato.MaxLength = 8;
             txtPesquisaContato.MaxLength = 39;
+            txtEstadoContato.MaxLength = 2;
+            txtCidadeContato.MaxLength = 10;
             LimparCampos();
             ControlaBotoes(1);
             ControlaCampos(1);
@@ -48,6 +50,8 @@ namespace AgendaDemo
             txtLinkedinContato.Clear();
             txtCepContato.Clear();
             txtPesquisaContato.Clear();
+            txtCidadeContato.Clear();
+            txtEstadoContato.Clear();
             dtPikerDataNascimentoContato.SelectedDate = DateTime.Now;
 
 
@@ -61,7 +65,7 @@ namespace AgendaDemo
             BtnEditarContato.IsEnabled = false;
             BtnExcluirContato.IsEnabled = false;
             BtnCancelaOperacao.IsEnabled = false;
-            BtnProcurarEnderecoContato.IsEnabled = false;
+            
 
             if (opc == 1)
             {
@@ -72,7 +76,7 @@ namespace AgendaDemo
             {
                 BtnCancelaOperacao.IsEnabled = true;
                 BtnSalvarContato.IsEnabled = true;
-                BtnProcurarEnderecoContato.IsEnabled = true;
+                
 
             }
             if (opc == 3)
@@ -80,7 +84,7 @@ namespace AgendaDemo
                 BtnEditarContato.IsEnabled = true;
                 BtnExcluirContato.IsEnabled = true;
                 BtnCancelaOperacao.IsEnabled = true;
-                BtnProcurarEnderecoContato.IsEnabled = true;
+                
 
             }
 
@@ -95,6 +99,9 @@ namespace AgendaDemo
             txtEmailContato.IsEnabled = false;
             txtLinkedinContato.IsEnabled = false;
             txtCepContato.IsEnabled = false;
+            txtEstadoContato.IsEnabled = false;
+            txtCidadeContato.IsEnabled = false;
+            dtPikerDataNascimentoContato.IsEnabled = false;
 
 
             if (opc == 1)
@@ -106,6 +113,9 @@ namespace AgendaDemo
                 txtEmailContato.IsEnabled = false;
                 txtLinkedinContato.IsEnabled = false;
                 txtCepContato.IsEnabled = false;
+                txtEstadoContato.IsEnabled = false;
+                txtCidadeContato.IsEnabled = false;
+                dtPikerDataNascimentoContato.IsEnabled = false;
 
 
 
@@ -120,6 +130,9 @@ namespace AgendaDemo
                 txtLinkedinContato.IsEnabled = true;
                 txtCepContato.IsEnabled = true;
                 txtPesquisaContato.IsEnabled = true;
+                txtEstadoContato.IsEnabled = true;
+                txtCidadeContato.IsEnabled = true;
+                dtPikerDataNascimentoContato.IsEnabled = true;
 
             }
 
@@ -147,6 +160,8 @@ namespace AgendaDemo
             contatoAgenda.LinkedinContato = txtLinkedinContato.Text;
             contatoAgenda.CepContato = txtCepContato.Text;
             contatoAgenda.DataNascimentoContato = dtPikerDataNascimentoContato.SelectedDate;
+            contatoAgenda.CidadeContato = txtCidadeContato.Text;
+            contatoAgenda.UFContato = txtEstadoContato.Text;
 
             try
             {
@@ -214,6 +229,8 @@ namespace AgendaDemo
                 txtEmailContato.Text = contatos.EmailContato;
                 txtLinkedinContato.Text = contatos.LinkedinContato;
                 txtCepContato.Text = contatos.CepContato;
+                txtCidadeContato.Text = contatos.CidadeContato;
+                txtEstadoContato.Text = contatos.UFContato;
 
             }
         }

@@ -38,7 +38,7 @@
         <Label Content="Email" HorizontalAlignment="Left" Margin="23,202,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <Label Content="Linkedin" HorizontalAlignment="Left" Margin="20,236,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <Label Content="UF" HorizontalAlignment="Left" Margin="444,134,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
-        <Label Content="Cidade" HorizontalAlignment="Left" Margin="534,134,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
+        <Label Content="Cidade" HorizontalAlignment="Left" Margin="551,135,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <Label Content="CEP" HorizontalAlignment="Left" Margin="438,100,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <TextBox x:Name="txtNomeContato"  HorizontalAlignment="Left" Height="29" Margin="85,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
         <TextBox x:Name="txtEnderecoContato" HorizontalAlignment="Left" Height="29" Margin="85,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
@@ -47,13 +47,10 @@
         <TextBox x:Name="txtEmailContato" HorizontalAlignment="Left" Height="29" Margin="85,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Lower" Foreground="#FF384C91"/>
         <TextBox x:Name="txtLinkedinContato" HorizontalAlignment="Left" Height="29" Margin="85,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
         <TextBox x:Name="txtCepContato" HorizontalAlignment="Left" Height="29" Margin="472,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
-        <Button x:Name="BtnProcurarEnderecoContato"  Margin="569,97,0,0" Height="32" HorizontalAlignment="Left" Width="58" VerticalAlignment="Top">
-            <materialDesign:PackIcon Kind="Search" Height="22" Width="27" ></materialDesign:PackIcon>
-        </Button>
-        <ComboBox x:Name="cboxUFContato" HorizontalAlignment="Left" Margin="467,134,0,0" VerticalAlignment="Top" Width="49" BorderBrush="#89E9EFF3" />
-        <ComboBox x:Name="cboxCidadeContato" HorizontalAlignment="Left" Margin="586,134,0,0" VerticalAlignment="Top" Width="120" BorderBrush="#89E9EFF3" />
         <Label Content="Data de nascimento" HorizontalAlignment="Left" Margin="444,67,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
         <DatePicker xml:lang="pt-br" x:Name="dtPikerDataNascimentoContato" HorizontalAlignment="Left" Margin="569,67,0,0" VerticalAlignment="Top" Width="110"  BorderBrush="#89E9EFF3" Foreground="#FF384C91" FontSize="14" FontStyle="Italic" />
+        <TextBox x:Name="txtEstadoContato" HorizontalAlignment="Left" Height="29" Margin="472,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="51" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91" Background="#FFF3F3F3"/>
+        <TextBox x:Name="txtCidadeContato" HorizontalAlignment="Left" Height="29" Margin="603,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91" Background="#FFF3F3F3"/>
 
     </Grid>
 </Window>
