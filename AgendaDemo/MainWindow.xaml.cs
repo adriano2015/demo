@@ -192,8 +192,9 @@ namespace AgendaDemo
 
                 }
             }
+            
 
-            if(operacao == "alterar")
+            else if(operacao == "alterar")
             {
                 agendaEntities1 agenda = new agendaEntities1();
                 contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
@@ -318,6 +319,16 @@ namespace AgendaDemo
                 LimparCampos();
             }
         }
+
+        private void txtPesquisaContato_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            agendaEntities1 agenda = new agendaEntities1();
+            var consulta = from AG in agenda.contatosAgendas
+                           where AG.NomeContato.Contains(txtPesquisaContato.Text)
+                           select AG;
+            this.ListarContatos();
+
         }
+    }
     }
 

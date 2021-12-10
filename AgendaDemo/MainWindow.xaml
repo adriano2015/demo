@@ -28,7 +28,7 @@
         </Button>
 
         <Label Content="Pesquisar" HorizontalAlignment="Left" Margin="34,413,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="txtPesquisaContato" HorizontalAlignment="Left" Height="29" Margin="100,413,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91"/>
+        <TextBox x:Name="txtPesquisaContato" HorizontalAlignment="Left" Height="29" Margin="100,413,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="348" Background="#FFF3F3F3" FontSize="14" FontStyle="Italic" CharacterCasing="Upper" Foreground="#FF384C91" TextInput="txtPesquisaContato_TextInput"/>
         <DataGrid x:Name="dtGRidContatos" Margin="20,460,20,47" IsReadOnly="True" SelectionMode="Single" Loaded="dtGRidContatos_Loaded" MouseDoubleClick="dtGRidContatos_MouseDoubleClick"/>
         <Border BorderBrush="AliceBlue" BorderThickness="1" Height="274" Margin="10,43,10,0" VerticalAlignment="Top" Background="#FF7DA2F0"/>
         <Label Content="Nome" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DDFFFFFF"/>
