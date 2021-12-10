@@ -21,6 +21,8 @@ namespace AgendaDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string operacao;
+        int codigoInternoContato;
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace AgendaDemo
             LimparCampos();
             ControlaBotoes(1);
             ControlaCampos(1);
+            
 
         }
         //*********************************************************************** metodos para tratamento de tela *********************************
@@ -142,6 +145,8 @@ namespace AgendaDemo
         {
             ControlaCampos(2);
             ControlaBotoes(2);
+            operacao = "novo";
+            
 
 
         }
@@ -150,37 +155,74 @@ namespace AgendaDemo
         {
             ControlaBotoes(1);
             ControlaCampos(1);
+            if (operacao == "novo")
+            {
 
-            contatosAgenda contatoAgenda = new contatosAgenda();
-            contatoAgenda.NomeContato = txtNomeContato.Text;
-            contatoAgenda.EnderecoContato = txtEnderecoContato.Text;
-            contatoAgenda.TelefonesContato = txtTelefonesContato.Text;
-            contatoAgenda.CelularContato = txtCelularContato.Text;
-            contatoAgenda.EmailContato = txtEmailContato.Text;
-            contatoAgenda.LinkedinContato = txtLinkedinContato.Text;
-            contatoAgenda.CepContato = txtCepContato.Text;
-            contatoAgenda.DataNascimentoContato = dtPikerDataNascimentoContato.SelectedDate;
-            contatoAgenda.CidadeContato = txtCidadeContato.Text;
-            contatoAgenda.UFContato = txtEstadoContato.Text;
 
-            try
+                contatosAgenda contatoAgenda = new contatosAgenda();
+                contatoAgenda.NomeContato = txtNomeContato.Text;
+                contatoAgenda.EnderecoContato = txtEnderecoContato.Text;
+                contatoAgenda.TelefonesContato = txtTelefonesContato.Text;
+                contatoAgenda.CelularContato = txtCelularContato.Text;
+                contatoAgenda.EmailContato = txtEmailContato.Text;
+                contatoAgenda.LinkedinContato = txtLinkedinContato.Text;
+                contatoAgenda.CepContato = txtCepContato.Text;
+                contatoAgenda.DataNascimentoContato = dtPikerDataNascimentoContato.SelectedDate;
+                contatoAgenda.CidadeContato = txtCidadeContato.Text;
+                contatoAgenda.UFContato = txtEstadoContato.Text;
+
+                try
+                {
+                    agendaEntities1 agenda = new agendaEntities1();
+                    agenda.contatosAgendas.Add(contatoAgenda);
+                    agenda.SaveChanges();
+                    JanelaAtencao JA = new JanelaAtencao();
+                    JA.Show();
+                    JA.RecebeMensagem("Contato salvo com sucesso!!!!!!!!!!!!!");
+
+                    ListarContatos();
+                    LimparCampos();
+
+                }
+                catch
+                {
+                    JanelaAtencao JA = new JanelaAtencao();
+                    JA.Show();
+                    JA.RecebeMensagem("Erro!!!!!!!!!!");
+
+                }
+            }
+
+            if(operacao == "alterar")
             {
                 agendaEntities1 agenda = new agendaEntities1();
-                agenda.contatosAgendas.Add(contatoAgenda);
+                contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
+
+                CA.NomeContato = txtNomeContato.Text;
+                CA.EnderecoContato = txtEnderecoContato.Text;
+                CA.TelefonesContato = txtTelefonesContato.Text;
+                CA.CelularContato = txtCelularContato.Text;
+                CA.EmailContato = txtEmailContato.Text;
+                CA.LinkedinContato = txtLinkedinContato.Text;
+                CA.CepContato = txtCepContato.Text;
+                CA.DataNascimentoContato = dtPikerDataNascimentoContato.SelectedDate;
+                CA.CidadeContato = txtCidadeContato.Text;
+                CA.UFContato = txtEstadoContato.Text;
                 agenda.SaveChanges();
+                
+
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
-                JA.RecebeMensagem("Contato salvo com sucesso!!!!!!!!!!!!!");
-
-                ListarContatos();
+                JA.RecebeMensagem("Registro Alterado\n com sucesso!");
+                this.ListarContatos();
                 LimparCampos();
 
             }
-            catch
+            else
             {
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
-                JA.RecebeMensagem("Erro!!!!!!!!!!");
+                JA.RecebeMensagem("Algo de errado não está certo");
 
             }
 
@@ -221,7 +263,7 @@ namespace AgendaDemo
             if (dtGRidContatos.SelectedIndex >= 0)
             {
                 contatosAgenda contatos = (contatosAgenda)dtGRidContatos.Items[dtGRidContatos.SelectedIndex];
-                int codigoInternoContato = contatos.codContato;
+                codigoInternoContato = contatos.codContato;
                 txtNomeContato.Text = contatos.NomeContato;
                 txtEnderecoContato.Text = contatos.EnderecoContato;
                 txtTelefonesContato.Text = contatos.TelefonesContato;
@@ -231,9 +273,51 @@ namespace AgendaDemo
                 txtCepContato.Text = contatos.CepContato;
                 txtCidadeContato.Text = contatos.CidadeContato;
                 txtEstadoContato.Text = contatos.UFContato;
+                ControlaBotoes(3);
 
             }
         }
 
+        private void BtnEditarContato_Click(object sender, RoutedEventArgs e)
+        {
+            ControlaBotoes(2);
+            ControlaCampos(2);
+            operacao = "alterar";
+        }
+
+        private void BtnCancelaOperacao_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos();
+            ControlaCampos(1);
+            ControlaBotoes(1);
+
+        }
+
+        private void BtnExcluirContato_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                agendaEntities1 agenda = new agendaEntities1();
+                contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
+                agenda.contatosAgendas.Remove(CA);
+                agenda.SaveChanges();
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Registro removido com sucesso!!!");
+                this.ListarContatos();
+                LimparCampos();
+                ControlaCampos(1);
+                ControlaBotoes(1);
+            }
+            catch
+            {
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Algo de errado não está certo");
+                this.ListarContatos();
+                LimparCampos();
+            }
+        }
+        }
     }
-}
+
