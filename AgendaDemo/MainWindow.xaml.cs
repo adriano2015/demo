@@ -320,15 +320,35 @@ namespace AgendaDemo
             }
         }
 
-        private void txtPesquisaContato_TextInput(object sender, TextCompositionEventArgs e)
+        private void txtPesquisaContato_KeyUp(object sender, KeyEventArgs e)
         {
             agendaEntities1 agenda = new agendaEntities1();
             var consulta = from AG in agenda.contatosAgendas
                            where AG.NomeContato.Contains(txtPesquisaContato.Text)
                            select AG;
-            this.ListarContatos();
+            dtGRidContatos.ItemsSource = consulta.ToList();
+            dtGRidContatos.Columns[0].Header = "Código";
+            dtGRidContatos.Columns[1].Header = "Nome";
+            dtGRidContatos.Columns[2].Header = "Endereço";
+            dtGRidContatos.Columns[3].Header = "Telefone";
+            dtGRidContatos.Columns[4].Header = "Celular";
+            dtGRidContatos.Columns[5].Header = "email";
+            dtGRidContatos.Columns[6].Header = "Linkedin";
+            dtGRidContatos.Columns[7].Header = "CEP";
+            dtGRidContatos.Columns[8].Header = "Pesquisa";
+            dtGRidContatos.Columns[9].Header = "Aniversário";
+            dtGRidContatos.Columns[10].Header = "Estado";
+            dtGRidContatos.Columns[11].Header = "Cidade";
+
+
 
         }
+
+
+
+
+
+
     }
     }
 
