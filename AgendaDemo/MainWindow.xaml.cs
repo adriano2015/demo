@@ -233,6 +233,47 @@ namespace AgendaDemo
 
 
         }
+
+        private void BtnEditarContato_Click(object sender, RoutedEventArgs e)
+        {
+            ControlaBotoes(2);
+            ControlaCampos(2);
+            operacao = "alterar";
+        }
+
+        private void BtnCancelaOperacao_Click(object sender, RoutedEventArgs e)
+        {
+            LimparCampos();
+            ControlaCampos(1);
+            ControlaBotoes(1);
+
+        }
+
+        private void BtnExcluirContato_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                agendaEntities1 agenda = new agendaEntities1();
+                contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
+                agenda.contatosAgendas.Remove(CA);
+                agenda.SaveChanges();
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Registro removido com sucesso!!!");
+                this.ListarContatos();
+                LimparCampos();
+                ControlaCampos(1);
+                ControlaBotoes(1);
+            }
+            catch
+            {
+                JanelaAtencao JA = new JanelaAtencao();
+                JA.Show();
+                JA.RecebeMensagem("Algo de errado não está certo");
+                this.ListarContatos();
+                LimparCampos();
+            }
+        }
         //******************************************************** dataGrid ************************************************************************
         private void ListarContatos()
         {
@@ -279,46 +320,7 @@ namespace AgendaDemo
             }
         }
 
-        private void BtnEditarContato_Click(object sender, RoutedEventArgs e)
-        {
-            ControlaBotoes(2);
-            ControlaCampos(2);
-            operacao = "alterar";
-        }
-
-        private void BtnCancelaOperacao_Click(object sender, RoutedEventArgs e)
-        {
-            LimparCampos();
-            ControlaCampos(1);
-            ControlaBotoes(1);
-
-        }
-
-        private void BtnExcluirContato_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                agendaEntities1 agenda = new agendaEntities1();
-                contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
-                agenda.contatosAgendas.Remove(CA);
-                agenda.SaveChanges();
-                JanelaAtencao JA = new JanelaAtencao();
-                JA.Show();
-                JA.RecebeMensagem("Registro removido com sucesso!!!");
-                this.ListarContatos();
-                LimparCampos();
-                ControlaCampos(1);
-                ControlaBotoes(1);
-            }
-            catch
-            {
-                JanelaAtencao JA = new JanelaAtencao();
-                JA.Show();
-                JA.RecebeMensagem("Algo de errado não está certo");
-                this.ListarContatos();
-                LimparCampos();
-            }
-        }
+     //************************************************************ pesquisa *******************************************************************
 
         private void txtPesquisaContato_KeyUp(object sender, KeyEventArgs e)
         {
