@@ -229,9 +229,6 @@ namespace AgendaDemo
 
 
 
-
-
-
         }
 
         private void BtnEditarContato_Click(object sender, RoutedEventArgs e)
