@@ -39,8 +39,6 @@ namespace AgendaDemo
             LimparCampos();
             ControlaBotoes(1);
             ControlaCampos(1);
-            
-
         }
         //*********************************************************************** metodos para tratamento de tela *********************************
         private void LimparCampos()
@@ -56,10 +54,6 @@ namespace AgendaDemo
             txtCidadeContato.Clear();
             txtEstadoContato.Clear();
             dtPikerDataNascimentoContato.SelectedDate = DateTime.Now;
-
-
-
-
         }
         private void ControlaBotoes(int opc)
         {
@@ -68,7 +62,6 @@ namespace AgendaDemo
             BtnEditarContato.IsEnabled = false;
             BtnExcluirContato.IsEnabled = false;
             BtnCancelaOperacao.IsEnabled = false;
-            
 
             if (opc == 1)
             {
@@ -79,19 +72,13 @@ namespace AgendaDemo
             {
                 BtnCancelaOperacao.IsEnabled = true;
                 BtnSalvarContato.IsEnabled = true;
-                
-
             }
             if (opc == 3)
             {
                 BtnEditarContato.IsEnabled = true;
                 BtnExcluirContato.IsEnabled = true;
                 BtnCancelaOperacao.IsEnabled = true;
-                
-
             }
-
-
         }
         private void ControlaCampos(int opc)
         {
@@ -106,7 +93,6 @@ namespace AgendaDemo
             txtCidadeContato.IsEnabled = false;
             dtPikerDataNascimentoContato.IsEnabled = false;
 
-
             if (opc == 1)
             {
                 txtNomeContato.IsEnabled = false;
@@ -119,9 +105,6 @@ namespace AgendaDemo
                 txtEstadoContato.IsEnabled = false;
                 txtCidadeContato.IsEnabled = false;
                 dtPikerDataNascimentoContato.IsEnabled = false;
-
-
-
             }
             if (opc == 2)
             {
@@ -136,9 +119,7 @@ namespace AgendaDemo
                 txtEstadoContato.IsEnabled = true;
                 txtCidadeContato.IsEnabled = true;
                 dtPikerDataNascimentoContato.IsEnabled = true;
-
             }
-
         }
         // **********************************************************************************operações com botoes ***************************************
         private void BtnNovoContato_Click(object sender, RoutedEventArgs e)
@@ -146,9 +127,6 @@ namespace AgendaDemo
             ControlaCampos(2);
             ControlaBotoes(2);
             operacao = "novo";
-            
-
-
         }
 
         private void BtnSalvarContato_Click(object sender, RoutedEventArgs e)
@@ -157,8 +135,6 @@ namespace AgendaDemo
             ControlaCampos(1);
             if (operacao == "novo")
             {
-
-
                 contatosAgenda contatoAgenda = new contatosAgenda();
                 contatoAgenda.NomeContato = txtNomeContato.Text;
                 contatoAgenda.EnderecoContato = txtEnderecoContato.Text;
@@ -182,19 +158,15 @@ namespace AgendaDemo
 
                     ListarContatos();
                     LimparCampos();
-
                 }
                 catch
                 {
                     JanelaAtencao JA = new JanelaAtencao();
                     JA.Show();
                     JA.RecebeMensagem("Erro!!!!!!!!!!");
-
                 }
             }
-            
-
-            else if(operacao == "alterar")
+            else if (operacao == "alterar")
             {
                 agendaEntities1 agenda = new agendaEntities1();
                 contatosAgenda CA = agenda.contatosAgendas.Find(codigoInternoContato);
@@ -210,25 +182,19 @@ namespace AgendaDemo
                 CA.CidadeContato = txtCidadeContato.Text;
                 CA.UFContato = txtEstadoContato.Text;
                 agenda.SaveChanges();
-                
 
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
                 JA.RecebeMensagem("Registro Alterado\n com sucesso!");
                 this.ListarContatos();
                 LimparCampos();
-
             }
             else
             {
                 JanelaAtencao JA = new JanelaAtencao();
                 JA.Show();
                 JA.RecebeMensagem("Algo de errado não está certo");
-
             }
-
-
-
         }
 
         private void BtnEditarContato_Click(object sender, RoutedEventArgs e)
@@ -243,7 +209,6 @@ namespace AgendaDemo
             LimparCampos();
             ControlaCampos(1);
             ControlaBotoes(1);
-
         }
 
         private void BtnExcluirContato_Click(object sender, RoutedEventArgs e)
@@ -289,7 +254,6 @@ namespace AgendaDemo
             dtGRidContatos.Columns[9].Header = "Aniversário";
             dtGRidContatos.Columns[10].Header = "Estado";
             dtGRidContatos.Columns[11].Header = "Cidade";
-
         }
 
         private void dtGRidContatos_Loaded(object sender, RoutedEventArgs e)
@@ -313,11 +277,9 @@ namespace AgendaDemo
                 txtCidadeContato.Text = contatos.CidadeContato;
                 txtEstadoContato.Text = contatos.UFContato;
                 ControlaBotoes(3);
-
             }
         }
-
-     //************************************************************ pesquisa *******************************************************************
+        //************************************************************ pesquisa *******************************************************************
 
         private void txtPesquisaContato_KeyUp(object sender, KeyEventArgs e)
         {
@@ -338,16 +300,7 @@ namespace AgendaDemo
             dtGRidContatos.Columns[9].Header = "Aniversário";
             dtGRidContatos.Columns[10].Header = "Estado";
             dtGRidContatos.Columns[11].Header = "Cidade";
-
-
-
         }
-
-
-
-
-
-
     }
-    }
+}
 
